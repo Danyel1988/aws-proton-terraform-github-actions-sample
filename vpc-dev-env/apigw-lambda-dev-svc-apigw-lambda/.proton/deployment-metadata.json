@@ -1,11 +1,11 @@
 {
-  "deploymentId" : "cea78f88-fab1-4cbe-96e7-4402cb799851",
+  "deploymentId" : "2e8f6435-0914-467e-aa12-1a695e49b6d3",
   "isResourceDeleted" : false,
   "resourceMetadata" : {
     "arn" : "arn:aws:proton:us-east-1:668204123078:service/apigw-lambda-dev-svc/service-instance/apigw-lambda",
     "templateArn" : "arn:aws:proton:us-east-1:668204123078:service-template/apigw-lambda-svc",
     "templateMajorVersion" : "1",
-    "templateMinorVersion" : "0",
+    "templateMinorVersion" : "1",
     "environmentArn" : "arn:aws:proton:us-east-1:668204123078:environment/vpc-dev-env"
   }
 }
