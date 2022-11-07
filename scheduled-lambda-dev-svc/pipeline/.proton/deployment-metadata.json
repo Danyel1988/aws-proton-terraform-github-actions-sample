@@ -1,6 +1,6 @@
 {
-  "deploymentId" : "9ff1d3b6-8315-42c5-bd4c-4568d7c91036",
-  "isResourceDeleted" : false,
+  "deploymentId" : "<proton-resource-deleted>",
+  "isResourceDeleted" : true,
   "resourceMetadata" : {
     "arn" : "arn:aws:proton:us-east-1:668204123078:service/scheduled-lambda-dev-svc/pipeline",
     "templateArn" : "arn:aws:proton:us-east-1:668204123078:service-template/scheduled-lambda-svc",
