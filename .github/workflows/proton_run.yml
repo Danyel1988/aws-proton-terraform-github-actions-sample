@@ -68,8 +68,7 @@ jobs:
             echo "setting found to true"
             found=true
             echo "setting outputs"
-            echo "deployment-metadata-path=$changed_file" >> $GITHUB_OUTPUT
-
+            echo "deployment-metadata-path=$changed_file" >> $env:GITHUB_OUTPUT
           fi
         done
         if [[ "$found" == false ]]; then
@@ -81,18 +80,18 @@ jobs:
       id: get-data
       run: |
         modified_resource_arn=$(jq -r '(.resourceMetadata.arn // .componentMetadata.arn)' ${{ steps.find-modified.outputs.deployment-metadata-path }})
-        echo "resource_arn=$modified_resource_arn" >> $GITHUB_OUTPUT
+        echo "resource_arn=$modified_resource_arn" >> $env:GITHUB_OUTPUT
         
         IFS=':'
         read -a split_arn <<< "$modified_resource_arn"
         proton_region=${split_arn[3]}
-        echo "proton_region=$proton_region" >> $GITHUB_OUTPUT
+        echo "proton_region=$proton_region" >> $env:GITHUB_OUTPUT
 
         deployment_id=$(jq -r '.deploymentId' ${{ steps.find-modified.outputs.deployment-metadata-path }})
-        echo "deployment_id=$deployment_id" >> $GITHUB_OUTPUT
+        echo "deployment_id=$deployment_id" >> $env:GITHUB_OUTPUT
 
         is_deleted=$(jq -r '.isResourceDeleted' ${{ steps.find-modified.outputs.deployment-metadata-path }})
-        echo "is_deleted=$is_deleted" >> $GITHUB_OUTPUT
+        echo "is_deleted=$is_deleted" >> $env:GITHUB_OUTPUT
 
 
         if [[ "$modified_resource_arn" == *":environment/"* ]]; then
@@ -145,12 +144,12 @@ jobs:
           fi
         fi
         
-        echo "working_directory=$working_directory" >> $GITHUB_OUTPUT
-        echo "environment=$environment_name" >> $GITHUB_OUTPUT
+        echo "working_directory=$working_directory" >> $env:GITHUB_OUTPUT
+        echo "environment=$environment_name" >> $env:GITHUB_OUTPUT
         
-        echo "role_arn=$role_arn" >> $GITHUB_OUTPUT
-        echo "target_region=$target_region" >> $GITHUB_OUTPUT
-        echo "state_bucket=$state_bucket" >> $GITHUB_OUTPUT
+        echo "role_arn=$role_arn" >> $env:GITHUB_OUTPUT
+        echo "target_region=$target_region" >> $env:GITHUB_OUTPUT
+        echo "state_bucket=$state_bucket" >> $env:GITHUB_OUTPUT
 
   terraform:
     name: 'Terraform'
@@ -221,7 +220,7 @@ jobs:
     # If this completes, then the entire workflow has successfully completed
     - name: Mark Success
       id: mark_success
-      run: echo "success=True" >> $GITHUB_OUTPUT
+      run: echo "success=True" >> $env:GITHUB_OUTPUT
 
   notify-proton:
     name: 'Notify Proton'
