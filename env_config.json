@@ -4,3 +4,4 @@
         "region": "us-east-1",
         "state_bucket":"aws-proton-terraform-bucket-01-668204123078"
     }
+}
