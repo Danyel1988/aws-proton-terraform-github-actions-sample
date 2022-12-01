@@ -1,6 +1,6 @@
 {
-  "deploymentId" : "c1b5d79d-8bba-4c94-b47a-6dff39198a84",
-  "isResourceDeleted" : false,
+  "deploymentId" : "<proton-resource-deleted>",
+  "isResourceDeleted" : true,
   "resourceMetadata" : {
     "arn" : "arn:aws:proton:us-east-1:668204123078:service/apigw-lambda-dev-svc/pipeline",
     "templateArn" : "arn:aws:proton:us-east-1:668204123078:service-template/apigw-lambda-svc",
